@@ -1,0 +1,35 @@
+name: Integración y entrega continua
+
+on:
+  push:
+    branches:
+      - main  # Este flujo de trabajo se disparará con un evento push en la rama 'main'
+
+jobs:
+  flujo_push:
+    runs-on: ubuntu-latest  # Especifica el sistema operativo Linux
+
+    steps:
+    # Primer paso: Presentación
+    - name: Presentación
+      run: |
+        echo "Nombre: ${{ secrets.NOMBRES }}"
+        echo "Apellidos: ${{ secrets.APELLIDOS }}"
+        echo "Edad: ${{ secrets.EDAD }}"
+
+    # Segundo paso: Datos generales
+    - name: Datos generales
+      run: |
+        echo "Carrera de ingeniería de sistemas"
+
+    # Tercer paso: Variables de entorno secretas
+    - name: Variables de entorno secretas
+      run: |
+        echo "user: ${{ secrets.USER }}"
+        echo "password: ${{ secrets.PASSWORD }}"
+
+    # Cuarto paso: Variables abiertas
+    - name: Variables abiertas
+      run: |
+        VERSION="3.0"
+        echo "Versión del proyecto: $VERSION"
